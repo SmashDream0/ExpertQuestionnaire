@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="ExpertQuestionnaire.GUI.View.Controls.HeaderItemsEditorPanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExpertQuestionnaire.GUI.View.Controls">
+
+    <StackPanel Orientation="Horizontal">
+        <local:CoronerButton ToolTip="Обновить" Command="{Binding RefreshCommand}">
+            <Image Source="pack://application:,,,/Resources/Refresh.png" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </local:CoronerButton>
+        <local:CoronerButton ToolTip="Добавить" Command="{Binding AddCommand}">
+            <Image Source="pack://application:,,,/Resources/Add.png" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </local:CoronerButton>
+        <local:CoronerButton ToolTip="Изменить" Command="{Binding EditCommand}">
+            <Image Source="pack://application:,,,/Resources/Edit.png" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </local:CoronerButton>
+        <local:CoronerButton ToolTip="Удалить" Command="{Binding DeleteCommand}">
+            <Image Source="pack://application:,,,/Resources/Delete.png" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </local:CoronerButton>
+    </StackPanel>
+
+</UserControl>

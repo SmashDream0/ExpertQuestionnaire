@@ -1,0 +1,20 @@
+﻿<Window x:Class="ExpertQuestionnaire.GUI.View.AdminView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExpertQuestionnaire.GUI.View"
+             mc:Ignorable="d" Width="180"
+             ResizeMode="NoResize"
+             WindowStartupLocation="CenterScreen"
+             SizeToContent="Height">
+    <StackPanel>
+        <Button Margin="5" Padding="3" Content="Редактор пользователей" Command="{Binding ShowUsersViewCommand}"/>
+        <Button Margin="5" Padding="3" Content="Редактор групп экспертов" Command="{Binding ShowExpertGroupsViewCommand}"/>
+        <Button Margin="5" Padding="3" Content="Редактор опросов" Command="{Binding ShowQuestionnairesViewCommand}"/>
+        <Button Margin="5" Padding="3" Command="{Binding ShowWorkQuestionnairesViewCommand}" Height="45">
+            <TextBlock Text="Редактор отношения опросов и групп экспертов" TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
+        <Button Margin="5" Padding="3" Content="Ответы экспертов" Command="{Binding ShowExpertAnswersCommand}"/>
+    </StackPanel>
+</Window>

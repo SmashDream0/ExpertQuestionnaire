@@ -1,0 +1,29 @@
+﻿<Window x:Class="ExpertQuestionnaire.GUI.View.ExpertGroupsEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExpertQuestionnaire.GUI.View"
+             xmlns:controls="clr-namespace:ExpertQuestionnaire.GUI.View.Controls"
+             MinWidth="250"
+             MinHeight="150"
+             Title="Справочник групп экспертов"
+             WindowStartupLocation="CenterScreen" Height="250" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:HeaderItemsPanelView Grid.Row="0" DataContext="{Binding}"/>
+
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Items}" SelectedItem="{Binding ItemCurrent}" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Кол-во экспертов" Binding="{Binding ExpertsCount}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

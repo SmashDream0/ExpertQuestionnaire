@@ -1,0 +1,29 @@
+﻿<Window x:Class="ExpertQuestionnaire.GUI.View.WorkQuestionnaireSelectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExpertQuestionnaire.GUI.View"
+             mc:Ignorable="d"
+             WindowStartupLocation="CenterScreen" Height="300" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Items}" SelectedItem="{Binding ItemCurrent}" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.InputBindings>
+                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding SelectItemCommand}"/>
+            </DataGrid.InputBindings>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Группа" Binding="{Binding ExpertGroup.Name}"/>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Questionnaire.Name}"/>
+                <DataGridTextColumn Header="Цель" Binding="{Binding Questionnaire.Purpose}"/>
+                <DataGridTextColumn Header="Задача" Binding="{Binding Questionnaire.Task}"/>
+                <DataGridTextColumn Header="Кол-во вопросов" Binding="{Binding Questionnaire.QuestionsCount}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

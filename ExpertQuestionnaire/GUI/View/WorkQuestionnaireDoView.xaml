@@ -1,0 +1,51 @@
+﻿<Window x:Class="ExpertQuestionnaire.GUI.View.WorkQuestionnaireDoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExpertQuestionnaire.GUI.View"
+             xmlns:controls="clr-namespace:ExpertQuestionnaire.GUI.View.Controls"
+             mc:Ignorable="d"
+             Title="{Binding Expert.Name, StringFormat=Эксперт {0}}" Height="450" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0" MaxHeight="600">
+            <TextBlock Margin="5" Padding="3" Text="{Binding QuestionnaireVM.QuestionCurrent.Text}" TextWrapping="Wrap"/>
+        </ScrollViewer>
+
+        <ListView Grid.Row="1"
+                  ItemsSource="{Binding QuestionnaireVM.Answers}"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  Background="Transparent">
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="4" Background="Transparent"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+
+                    <ItemsControl>
+                        <TextBlock Text="{Binding Text}"/>
+                        <RadioButton IsChecked="{Binding IsAnswer}"/>
+                    </ItemsControl>
+
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ListView>
+
+        <controls:ScrollItems Grid.Row="2" DataContext="{Binding QuestionnaireVM.ScrollVM}"/>
+
+        <Button Margin="5" Padding="3" Content="Готово" Grid.Row="3" HorizontalAlignment="Left" Command="{Binding OkCommand}"/>
+        <Button Margin="5" Padding="3" Content="Закрыть" Grid.Row="3" HorizontalAlignment="Right" Command="{Binding CloseCommand}"/>
+    </Grid>
+</Window>
